@@ -1,5 +1,6 @@
 class Solution {
-    public int minSubArrayLen(int target, int[] nums) {
+  
+    public  int minSubArrayLen(int target, int[] nums) {
          int left =0;
           int sum=0;
 
