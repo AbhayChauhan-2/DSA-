@@ -1,7 +1,7 @@
 class Solution {
     public int characterReplacement(String s, int k) {
         int left =0;
-        int cnt =0;
+     
         HashMap<Character,Integer> use=new HashMap<>();
 int maxx =Integer.MIN_VALUE;
 int maxxy =0;
@@ -12,8 +12,8 @@ int maxxy =0;
            use.put( ch,use.getOrDefault(ch,0)+1);
 
          maxxy=Math.max(maxxy,use.get(ch));
-        int cz=0;
-           while((i-left+1)-maxxy>k){
+       //maxxy=Collections.max(use.values());
+if((i-left+1)-maxxy>k){
             char pk=s.charAt(left);
              use.put(pk,use.get(pk)-1);
            
