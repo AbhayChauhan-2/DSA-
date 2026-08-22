@@ -4,13 +4,14 @@ class Solution {
         int cnt =0;
         HashMap<Character,Integer> use=new HashMap<>();
 int maxx =Integer.MIN_VALUE;
+int maxxy =0;
         for( int i =0;i<s.length();i++){
             char ch = s.charAt(i);
            
           
            use.put( ch,use.getOrDefault(ch,0)+1);
 
-        int maxxy=Collections.max(use.values());
+         maxxy=Math.max(maxxy,use.get(ch));
         int cz=0;
            while((i-left+1)-maxxy>k){
             char pk=s.charAt(left);
@@ -21,7 +22,7 @@ int maxx =Integer.MIN_VALUE;
             }
 
        left++;
-       maxxy=Collections.max(use.values());
+       //maxxy=Collections.max(use.values());
       // maxxy=Math.max(maxxy,cz);
 
         }
