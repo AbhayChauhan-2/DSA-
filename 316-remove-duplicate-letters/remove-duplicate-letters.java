@@ -6,14 +6,14 @@ class Solution {
 
 
         for (int i = 0; i < s.length(); i++) { 
-            lastindex[s.charAt(i)-'a']++;}
+            lastindex[s.charAt(i)-'a']=i;}
         for (int i = 0; i < s.length(); i++) { 
             
-           lastindex[s.charAt(i)-'a']--;
+          // lastindex[s.charAt(i)-'a']--;
            if ( seen[s.charAt(i)-'a']){
             continue;
            }
-            while (!stack.isEmpty() && stack.peek() > s.charAt(i) && lastindex[stack.peek()-'a']>0) { 
+            while (!stack.isEmpty() && stack.peek() > s.charAt(i) && lastindex[stack.peek()-'a']>i) { 
                seen[stack.pop()-'a']=false;
             } 
 
