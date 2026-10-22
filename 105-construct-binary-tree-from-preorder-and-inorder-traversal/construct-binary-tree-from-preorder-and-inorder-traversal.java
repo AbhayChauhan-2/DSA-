@@ -13,7 +13,7 @@
  *     }
  * }
  */
-class Solution {
+/*class Solution {
     int idx;
     public TreeNode buildTree(int[] preorder, int[] inorder) {
          idx =0;
@@ -36,6 +36,34 @@ class Solution {
              }
          }
           TreeNode root= new TreeNode(rootval);
+
+          root.left=  build( preorder,inorder,start,i-1);
+          root.right=  build( preorder,inorder,i+1,end);
+          return root;
+     }
+}*/
+class Solution {
+    int idx;
+    HashMap<Integer,Integer> map= new HashMap<>();
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+          for ( int i =0;i<inorder.length;i++){
+             map.put(inorder[i],i);
+
+          }
+        
+          return build( preorder,inorder,0,preorder.length-1);
+
+
+
+
+        
+    }
+     public TreeNode build( int[] preorder,int[] inorder, int start, int end){
+        if( start>end) return null;
+         int rootval= preorder[idx++];
+      
+          TreeNode root= new TreeNode(rootval);
+          int i= map.get(rootval);
 
           root.left=  build( preorder,inorder,start,i-1);
           root.right=  build( preorder,inorder,i+1,end);
